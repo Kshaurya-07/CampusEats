@@ -144,7 +144,7 @@ npm run start
 Before launching into production, replace the following placeholder items:
 - **Menu Photography & Outlets**: In `src/lib/placeholder-images.ts` and `src/data/sample-outlets.ts`, replace sample eatery names and dishes with onboarded VIT-AP Food Street vendors.
 - **WhatsApp Helpline**: In `src/constants/brand.ts`, update `WHATSAPP_URL` with the official campus phone number.
-- **Demo Video**: In `public/media/video-placeholder.mp4`, replace with genuine campus walkthrough footage.
+- **Demo Video**: In `public/media/campuseats-demo.mp4` (poster: `public/media/campuseats-demo-poster.jpg`), official slot-based walkthrough video is loaded.
 
 ---
 

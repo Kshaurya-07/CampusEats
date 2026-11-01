@@ -1,0 +1,22 @@
+.footer-wordmark-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.footer-wordmark-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer-wordmark-text {
+  font-family: var(--font-archivo), "Archivo Black", sans-serif;
+  font-weight: 900;
+  font-size: 165px;
+  letter-spacing: 0.02em;
+  text-anchor: middle;
+  dominant-baseline: central;
+}

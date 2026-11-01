@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -27,6 +27,20 @@ export default function HomePage() {
   const [waitlistRole, setWaitlistRole] = useState<"student" | "outlet" | "delivery">("student");
   const [demoVideoOpen, setDemoVideoOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("demo") === "1" || window.location.hash === "#demo") {
+        setDemoVideoOpen(true);
+      }
+      if (params.get("footer") === "1" || window.location.hash === "#footer") {
+        setTimeout(() => {
+          window.scrollTo(0, document.body.scrollHeight);
+        }, 200);
+      }
+    }
+  }, []);
 
   const openWaitlist = (role: "student" | "outlet" | "delivery" = "student") => {
     setWaitlistRole(role);

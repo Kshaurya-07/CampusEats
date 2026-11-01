@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUp, Instagram, Linkedin, Twitter } from "lucide-react";
 import { BrandWordmark } from "../common/BrandWordmark";
+import { FooterWordmark } from "../FooterWordmark";
 import { BRAND_NAME, CAMPUS_LOCATION, CONTACT_EMAIL, SOCIAL_LINKS } from "@/constants/brand";
 import { NAV_ITEMS } from "@/constants/navigation";
 
@@ -18,18 +19,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onJoinWaitlist })
   };
 
   return (
-    <footer className="relative bg-dark text-cream pt-16 pb-12 px-6 sm:px-8 overflow-hidden select-none border-t-2 border-cream/20">
-      {/* Giant Watermark Background (Hotbite signature footer effect) */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none opacity-[0.05] overflow-hidden whitespace-nowrap"
-        aria-hidden="true"
-      >
-        <span className="font-londrina uppercase text-[15vw] leading-none tracking-tight">
-          {BRAND_NAME}
-        </span>
-      </div>
-
-      <div className="relative max-w-6xl mx-auto z-10">
+    <footer id="footer" className="relative bg-dark text-cream pt-16 pb-8 overflow-hidden select-none border-t-2 border-cream/20">
+      {/* Upper Footer: Nav links, contact, brand, socials */}
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-cream/15">
           {/* Col 1: Wordmark & Tagline */}
           <div className="md:col-span-2 space-y-4">
@@ -118,9 +110,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onJoinWaitlist })
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-inter text-cream/60">
+      {/* Full-bleed oversized Footer Wordmark */}
+      <div className="w-full relative my-6 sm:my-8 z-10">
+        <FooterWordmark />
+      </div>
+
+      {/* Small bottom bar */}
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 z-10 pt-4 border-t border-cream/10">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-inter text-cream/60">
           <p>© {new Date().getFullYear()} {BRAND_NAME} · {CAMPUS_LOCATION}. All rights reserved.</p>
 
           <div className="flex items-center gap-6">

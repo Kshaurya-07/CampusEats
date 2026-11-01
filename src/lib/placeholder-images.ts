@@ -66,5 +66,6 @@ export const PLACEHOLDER_IMAGES = {
   videoFoodPrep: "/media/gemini-generated-video-11fe120b.mp4",
   videoOutletKitchen: "/media/gemini-generated-video-4172aa3b.mp4",
   videoDeliveryRun: "/media/gemini-generated-video-55912167.mp4",
-  videoDemo: "/media/video-placeholder.mp4",
+  videoDemo: "/media/campuseats-demo.mp4",
+  videoDemoPoster: "/media/campuseats-demo-poster.jpg",
 };

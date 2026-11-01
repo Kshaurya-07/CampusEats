@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Archivo_Black } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/common/SmoothScroll";
 import { GrainOverlay } from "@/components/common/GrainOverlay";
@@ -9,6 +10,13 @@ import {
   CAMPUS_LOCATION,
   CONTACT_EMAIL,
 } from "@/constants/brand";
+
+const archivoBlack = Archivo_Black({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://campuseats.com"),
@@ -85,7 +93,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="relative bg-cream text-dark antialiased">
+      <body className={`${archivoBlack.variable} relative bg-cream text-dark antialiased`}>
         <SmoothScroll>
           <GrainOverlay />
           {children}
