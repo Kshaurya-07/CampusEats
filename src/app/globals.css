@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Londrina Solid";
+  src: url("/fonts/flUhRq6sw40kQEJxWNgkLuudGcNcIhI8tIHh.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Londrina Solid";
+  src: url("/fonts/flUiRq6sw40kQEJxWNgkLuudGfvdDzYxn53oTrcL.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Andika";
+  src: url("/fonts/mem_Ya6iyW-LwqgAaLwRWrwGVA.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Andika";
+  src: url("/fonts/mem8Ya6iyW-Lwqg40ZM1V5caXcl0Aw.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-londrina: "Londrina Solid", cursive, sans-serif;
+  --font-andika: "Andika", sans-serif;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-cream: #ffefd9;
+  --color-dark: #401500;
+  --color-orange: #ff9500;
+  --color-logo-orange: #e05a0c;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-cream);
+  color: var(--color-dark);
+  font-family: var(--font-inter);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--color-cream);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fixed subtle ambient grain texture from Hotbite */
+.ambient-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("/images/smwA9OJpA5ZFq5RdyTx5WEjIu2Y.png");
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 720px auto;
+  opacity: 0.12;
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ffefd9;
+}
+::-webkit-scrollbar-thumb {
+  background: #401500;
+  border-radius: 9999px;
+}
