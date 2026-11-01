@@ -236,7 +236,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open **http://localhost:3000** in your browser.
+Open the application in your browser.
 
 ### Scripts
 
@@ -272,7 +272,7 @@ Copy `.env.example` to `.env.local` and adjust:
 
 ```bash
 # Public site URL (used for sitemap, Open Graph and canonical links)
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_URL=https://campuseats.com
 ```
 
 Never commit `.env.local` or any secret keys.
@@ -305,7 +305,7 @@ The waitlist form posts to a Next.js route handler.
 | `400` | `{ "ok": false, "errors": { ... } }` | Validation failed |
 | `500` | `{ "ok": false }` | Server error |
 
-> **Important:** the default storage is a local JSON file, which is fine for development only. Serverless hosts such as Vercel do not keep local files between requests. Before launch, connect a real store (for example Supabase, Firebase, Airtable or a Google Sheets webhook) inside `app/api/waitlist/route.ts`.
+> **Important:** the default storage is a local JSON file, which is fine for development only. Serverless platforms do not keep local files between requests. Before launch, connect a real store (for example Supabase, Firebase, Airtable or a Google Sheets webhook) inside `app/api/waitlist/route.ts`.
 
 ---
 
@@ -376,14 +376,6 @@ xychart-beta
 
 ## Deployment
 
-### Vercel (recommended)
-
-1. Push the repository to GitHub.
-2. Import it at [vercel.com/new](https://vercel.com/new).
-3. Set `NEXT_PUBLIC_SITE_URL` to your production domain.
-4. Connect a persistent store for the waitlist (see [Waitlist API](#waitlist-api)).
-5. Deploy. Every push to `main` creates a new production deployment.
-
 ### Static export (hosting without a server)
 
 Static export does not support API routes. If you export, replace the waitlist call with a hosted form endpoint (for example Formspree, a Google Apps Script URL or a Supabase REST call).
@@ -452,7 +444,6 @@ CampusEats is an independent student venture and is not officially affiliated wi
 | | |
 |---|---|
 | **Email** | info@campuseats.com |
-| **Instagram / LinkedIn / X** | _add links_ |
 | **Location** | VIT-AP Campus, Amaravati, Andhra Pradesh |
 
 <div align="center">
