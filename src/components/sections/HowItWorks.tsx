@@ -5,8 +5,9 @@ import Image from "next/image";
 import { ArrowRight, Compass, CalendarClock, Bike } from "lucide-react";
 import { SectionHeading } from "../common/SectionHeading";
 import { TornEdge } from "../common/TornEdge";
-import { PLACEHOLDER_IMAGES } from "@/lib/placeholder-images";
-import { BRAND_NAME } from "@/constants/brand";
+
+const DARK_BROWN_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4IDYiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjYiIGZpbGw9IiM0MDE1MDAiLz48L3N2Zz4=";
 
 interface HowItWorksStep {
   step: string;
@@ -14,6 +15,7 @@ interface HowItWorksStep {
   title: string;
   description: string;
   image: string;
+  alt: string;
   icon: React.ReactNode;
 }
 
@@ -21,28 +23,31 @@ const STEPS: HowItWorksStep[] = [
   {
     step: "01",
     badge: "Step 1: Explore",
-    title: "Discover Campus Menus",
+    title: "Discover campus menus",
     description:
       "Browse live menus, breakfast specials, lunch combos, and snacks from Food Street stalls right from your phone.",
-    image: PLACEHOLDER_IMAGES.howItWorks1,
+    image: "/images/how-it-works/step-1-explore.jpg",
+    alt: "Spread of Indian dishes: biryani, curry, naan, samosas and chai",
     icon: <Compass className="w-5 h-5 text-dark" />,
   },
   {
     step: "02",
     badge: "Step 2: Schedule",
-    title: "Pre-Book Your Time Slot",
+    title: "Pre-book your time slot",
     description:
       "Know when your class ends? Lock in your delivery or pickup time window in advance so outlets prepare your meal on schedule.",
-    image: PLACEHOLDER_IMAGES.howItWorks2,
+    image: "/images/how-it-works/step-2-schedule.jpg",
+    alt: "Steaming latte with latte art",
     icon: <CalendarClock className="w-5 h-5 text-dark" />,
   },
   {
     step: "03",
     badge: "Step 3: Enjoy",
-    title: "Skip Queues & Grab Food",
+    title: "Skip queues & grab food",
     description:
       "Collect your freshly packed meal straight from the pickup counter without waiting, or have student partners deliver to your hostel block.",
-    image: PLACEHOLDER_IMAGES.howItWorks3,
+    image: "/images/how-it-works/step-3-enjoy.jpg",
+    alt: "Cheeseburger with fries",
     icon: <Bike className="w-5 h-5 text-dark" />,
   },
 ];
@@ -67,21 +72,29 @@ export const HowItWorks: React.FC = () => {
 
         {/* 3 Step Cards Grid (Hotbite Specials layout) */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {STEPS.map((item, idx) => (
+          {STEPS.map((item) => (
             <div
               key={item.step}
               className="group bg-[#331000] rounded-3xl border-3 border-cream/20 shadow-[6px_8px_0px_rgba(255,239,217,0.2)] overflow-hidden flex flex-col justify-between hover:border-orange transition-all duration-300 hover:-translate-y-2 hover:shadow-[8px_12px_0px_#ff9500]"
             >
-              {/* Visual Card Image */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/40 border-b-2 border-cream/20">
+              {/* Visual Card Image Container */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#401500] border-b-2 border-cream/20">
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 400px"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={DARK_BROWN_BLUR_DATA_URL}
+                  sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 left-3 bg-orange text-dark font-londrina text-xl px-3 py-0.5 rounded-full border-2 border-dark shadow-[2px_2px_0px_#401500]">
+                {/* Light top-to-transparent dark gradient to enhance badge contrast */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-b from-[#401500]/50 via-transparent to-transparent pointer-events-none z-[1]"
+                  aria-hidden="true"
+                />
+                <div className="absolute top-3 left-3 bg-orange text-dark font-londrina text-xl px-3 py-0.5 rounded-full border-2 border-dark shadow-[2px_2px_0px_#401500] z-10">
                   {item.step}
                 </div>
               </div>

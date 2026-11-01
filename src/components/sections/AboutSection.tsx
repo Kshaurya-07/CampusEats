@@ -126,7 +126,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               className="group relative cursor-pointer rounded-4xl overflow-hidden border-3 border-dark bg-dark aspect-[4/3] shadow-[6px_8px_0px_#401500] transition-transform hover:-translate-y-1"
             >
               <Image
-                src={PLACEHOLDER_IMAGES.howItWorks1}
+                src={PLACEHOLDER_IMAGES.videoDemoPoster}
                 alt="CampusEats Walkthrough Preview"
                 fill
                 sizes="(max-width: 1024px) 100vw, 550px"

@@ -12,10 +12,10 @@ export const PLACEHOLDER_IMAGES = {
   heroSlide3: "/images/bUOkO1UNobLaLoTDVHcZfFLIuu4.jpg", // TODO: replace with dorm delivery photo
   heroSlide4: "/images/4AZcEf8BpmzinX5vu6FauiqiA.jpg", // TODO: replace with student delivery partner photo
 
-  // How It Works cards (from reference-content)
-  howItWorks1: "/images/frame-1707479758.jpg",
-  howItWorks2: "/images/frame-1707479758-1.jpg",
-  howItWorks3: "/images/frame-1707479758-2.jpg",
+  // How It Works cards (Real Food Photos)
+  howItWorks1: "/images/how-it-works/step-1-explore.jpg",
+  howItWorks2: "/images/how-it-works/step-2-schedule.jpg",
+  howItWorks3: "/images/how-it-works/step-3-enjoy.jpg",
 
   // Outlets Menu - Meals
   mealBiryani: "/images/piNusGg3XKXJbn5EebJAyFTYDQ4.jpg", // TODO: replace with Food Street Biryani photo
