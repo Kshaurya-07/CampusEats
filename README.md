@@ -374,24 +374,6 @@ xychart-beta
 
 ---
 
-## Deployment
-
-### Static export (hosting without a server)
-
-Static export does not support API routes. If you export, replace the waitlist call with a hosted form endpoint (for example Formspree, a Google Apps Script URL or a Supabase REST call).
-
-### Pre-launch checklist
-
-- [ ] Replace sample outlets in `data/sample-outlets.ts` with real Food Street outlets
-- [ ] Replace temporary images listed in `lib/placeholder-images.ts` with original photos
-- [ ] Set the real WhatsApp number and social links in `lib/constants.ts`
-- [ ] Connect a persistent waitlist store
-- [ ] Add a Privacy Policy page
-- [ ] Verify the demo video, poster and all images load in production
-- [ ] Record the final Lighthouse results
-
----
-
 ## Roadmap
 
 ```mermaid
