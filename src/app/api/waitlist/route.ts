@@ -25,11 +25,13 @@ function getRecords(): WaitlistEntry[] {
   return [];
 }
 
-function saveRecords(records: WaitlistEntry[]) {
+function saveRecords(records: WaitlistEntry[]): boolean {
   try {
     fs.writeFileSync(DATA_FILE, JSON.stringify(records, null, 2), "utf-8");
+    return true;
   } catch (err) {
     console.error("Failed to write waitlist records:", err);
+    return false;
   }
 }
 
@@ -55,7 +57,22 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!contact || typeof contact !== "string" || contact.trim().length < 6) {
+    if (!contact || typeof contact !== "string") {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Please provide a valid VIT-AP email address or 10-digit mobile number.",
+        },
+        { status: 400 }
+      );
+    }
+
+    // The error message promises an email OR a 10-digit mobile number, so
+    // enforce that here instead of only checking length >= 6.
+    const contactTrimmed = contact.trim();
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactTrimmed);
+    const isMobile = /^\d{10}$/.test(contactTrimmed.replace(/[\s-]/g, ""));
+    if (!isEmail && !isMobile) {
       return NextResponse.json(
         {
           success: false,
@@ -79,7 +96,7 @@ export async function POST(request: Request) {
     const newEntry: WaitlistEntry = {
       id: `w_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
       name: name.trim(),
-      contact: contact.trim(),
+      contact: contactTrimmed,
       role,
       blockOrOutlet: blockOrOutlet ? String(blockOrOutlet).trim() : undefined,
       createdAt: new Date().toISOString(),
@@ -87,7 +104,19 @@ export async function POST(request: Request) {
 
     const records = getRecords();
     records.push(newEntry);
-    saveRecords(records);
+    // Do not report success if the record was not actually saved. In a
+    // serverless deployment the repo file may be read-only, so a silent
+    // write failure previously returned 201 and lost the registration.
+    if (!saveRecords(records)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Unable to save your registration right now. Please try again later.",
+        },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       {

@@ -84,7 +84,7 @@ export const FinalCtaSection: React.FC = () => {
             <div className="mt-4 inline-flex items-center gap-2 bg-cream/10 px-4 py-1.5 rounded-full border border-cream/20 text-xs font-andika text-cream">
               <Users className="w-4 h-4 text-orange" />
               <span>
-                <strong>{waitlistCount}</strong> verified campus members already registered!
+                <strong>{waitlistCount}</strong> campus members already registered!
               </span>
             </div>
           )}
