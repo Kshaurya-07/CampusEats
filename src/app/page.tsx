@@ -16,7 +16,6 @@ import { PartnerGallery } from "@/components/sections/PartnerGallery";
 import { QueueBanner } from "@/components/sections/QueueBanner";
 import { RoadmapSection } from "@/components/sections/RoadmapSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
-import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/layout/Footer";
 import { WaitlistModal } from "@/components/modals/WaitlistModal";
 import { DemoVideoModal } from "@/components/modals/DemoVideoModal";
@@ -97,10 +96,7 @@ export default function HomePage() {
       {/* 15. Final CTA Waitlist Form */}
       <FinalCtaSection />
 
-      {/* 16. Contact Channels */}
-      <ContactSection />
-
-      {/* 17. Footer */}
+      {/* 16. Footer */}
       <Footer
         onOpenPrivacy={() => setPrivacyOpen(true)}
         onJoinWaitlist={() => openWaitlist("student")}
