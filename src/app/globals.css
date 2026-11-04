@@ -97,3 +97,6 @@ body {
   background: #401500;
   border-radius: 9999px;
 }
+
+/* Full 3D pack: preserve 3D space for hero / scroll layers. */
+.fx3d-preserve { transform-style: preserve-3d; }

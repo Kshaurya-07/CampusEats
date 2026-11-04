@@ -4,6 +4,8 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/common/SmoothScroll";
 import { GrainOverlay } from "@/components/common/GrainOverlay";
 import { BackToTop } from "@/components/common/BackToTop";
+import { CursorGlow } from "@/components/effects/CursorGlow";
+import { ScrollProgress3D } from "@/components/effects/Scroll3D";
 import {
   BRAND_NAME,
   BRAND_TAGLINE,
@@ -95,6 +97,8 @@ export default function RootLayout({
       </head>
       <body className={`${archivoBlack.variable} relative bg-cream text-dark antialiased`}>
         <SmoothScroll>
+          <CursorGlow />
+          <ScrollProgress3D />
           <GrainOverlay />
           {children}
           <BackToTop />

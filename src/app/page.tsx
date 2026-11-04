@@ -20,6 +20,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WaitlistModal } from "@/components/modals/WaitlistModal";
 import { DemoVideoModal } from "@/components/modals/DemoVideoModal";
 import { PrivacyModal } from "@/components/modals/PrivacyModal";
+import { ScrollReveal3D } from "@/components/effects/Scroll3D";
 
 export default function HomePage() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
@@ -58,43 +59,67 @@ export default function HomePage() {
       <HeroSection onJoinWaitlist={() => openWaitlist("student")} />
 
       {/* 4. Big Marquee */}
-      <BigMarquee />
+      <ScrollReveal3D>
+        <BigMarquee />
+      </ScrollReveal3D>
 
       {/* 5. About & Our Story */}
-      <AboutSection
-        onOpenDemo={() => setDemoVideoOpen(true)}
-        onJoinWaitlist={() => openWaitlist("student")}
-      />
+      <ScrollReveal3D>
+        <AboutSection
+          onOpenDemo={() => setDemoVideoOpen(true)}
+          onJoinWaitlist={() => openWaitlist("student")}
+        />
+      </ScrollReveal3D>
 
       {/* 6. How It Works (3 Steps) */}
-      <HowItWorks />
+      <ScrollReveal3D>
+        <HowItWorks />
+      </ScrollReveal3D>
 
       {/* 7. Outlets & Menus */}
-      <OutletsSection onJoinWaitlist={() => openWaitlist("student")} />
+      <ScrollReveal3D>
+        <OutletsSection onJoinWaitlist={() => openWaitlist("student")} />
+      </ScrollReveal3D>
 
       {/* 8. Delivery Partner Promo & Earnings Calculator */}
-      <EarningsPromo onJoinDeliveryWaitlist={() => openWaitlist("delivery")} />
+      <ScrollReveal3D>
+        <EarningsPromo onJoinDeliveryWaitlist={() => openWaitlist("delivery")} />
+      </ScrollReveal3D>
 
       {/* 9. Dual-Direction Icon Marquee */}
-      <IconMarquee />
+      <ScrollReveal3D>
+        <IconMarquee />
+      </ScrollReveal3D>
 
       {/* 10. Why CampusEats Advantage Grid */}
-      <WhyCampusEats />
+      <ScrollReveal3D>
+        <WhyCampusEats />
+      </ScrollReveal3D>
 
       {/* 11. Proof & Validation Cards */}
-      <ProofSection />
+      <ScrollReveal3D>
+        <ProofSection />
+      </ScrollReveal3D>
 
       {/* 12. Partner With Us (Outlet Video Gallery) */}
-      <PartnerGallery onJoinOutletWaitlist={() => openWaitlist("outlet")} />
+      <ScrollReveal3D>
+        <PartnerGallery onJoinOutletWaitlist={() => openWaitlist("outlet")} />
+      </ScrollReveal3D>
 
       {/* 13. Campus Congestion Callout Banner */}
-      <QueueBanner onJoinWaitlist={() => openWaitlist("student")} />
+      <ScrollReveal3D>
+        <QueueBanner onJoinWaitlist={() => openWaitlist("student")} />
+      </ScrollReveal3D>
 
       {/* 14. Product Roadmap */}
-      <RoadmapSection />
+      <ScrollReveal3D>
+        <RoadmapSection />
+      </ScrollReveal3D>
 
       {/* 15. Final CTA Waitlist Form */}
-      <FinalCtaSection />
+      <ScrollReveal3D>
+        <FinalCtaSection />
+      </ScrollReveal3D>
 
       {/* 16. Footer */}
       <Footer

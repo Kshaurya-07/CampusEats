@@ -8,6 +8,7 @@ import { PLACEHOLDER_IMAGES } from "@/lib/placeholder-images";
 import { PillBadge } from "../common/PillBadge";
 import { Button } from "../ui/Button";
 import { TornEdge } from "../common/TornEdge";
+import { Hero3D } from "../effects/Hero3D";
 
 interface HeroSectionProps {
   onJoinWaitlist: () => void;
@@ -74,6 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinWaitlist }) => {
 
   return (
     <section id="hero" className="relative bg-dark text-cream pt-12 sm:pt-16 pb-16 overflow-hidden">
+      <Hero3D />
       {/* Decorative Floating Tilted Sticker Chips (Hotbite signature aesthetic) */}
       <div className="absolute top-10 left-6 sm:left-16 z-20 pointer-events-none hidden md:block">
         <PillBadge variant="orange" rotate="-rotate-6" icon={<Sparkles className="w-3.5 h-3.5" />}>
