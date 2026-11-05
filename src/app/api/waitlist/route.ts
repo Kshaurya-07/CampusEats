@@ -61,7 +61,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          error: "Please provide a valid VIT-AP email address or 10-digit mobile number.",
+          error: "Please provide a valid email address or 10-digit mobile number.",
         },
         { status: 400 }
       );
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          error: "Please provide a valid VIT-AP email address or 10-digit mobile number.",
+          error: "Please provide a valid email address or 10-digit mobile number.",
         },
         { status: 400 }
       );

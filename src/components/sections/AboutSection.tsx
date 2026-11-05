@@ -166,7 +166,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             {ABOUT_CARDS.map((card, idx) => (
               <div
                 key={card.id}
+                role="button"
+                tabIndex={0}
+                aria-pressed={activeCard === idx}
                 onMouseEnter={() => setActiveCard(idx)}
+                onClick={() => setActiveCard(idx)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActiveCard(idx);
+                  }
+                }}
                 className={`p-6 rounded-3xl border-3 border-dark transition-all duration-300 cursor-pointer ${
                   activeCard === idx
                     ? "bg-dark text-cream shadow-[6px_8px_0px_#ff9500] -translate-y-2 scale-[1.02]"

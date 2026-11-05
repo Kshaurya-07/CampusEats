@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, CheckCircle, Sparkles, Loader2, ArrowRight } from "lucide-react";
 import { BRAND_NAME, CAMPUS_LOCATION } from "@/constants/brand";
 
@@ -22,6 +22,15 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -169,10 +178,11 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
+                <label htmlFor="waitlist-name" className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
                   Full Name <span className="text-orange">*</span>
                 </label>
                 <input
+                  id="waitlist-name"
                   type="text"
                   required
                   placeholder="e.g. Arjun Sharma"
@@ -183,11 +193,12 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
+                <label htmlFor="waitlist-contact" className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
                   {role === "outlet" ? "Contact Number / Business Email" : "VIT-AP Email or Mobile Number"}{" "}
                   <span className="text-orange">*</span>
                 </label>
                 <input
+                  id="waitlist-contact"
                   type="text"
                   required
                   placeholder={
@@ -202,7 +213,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
+                <label htmlFor="waitlist-block" className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
                   {role === "outlet"
                     ? "Outlet / Stall Name at Food Street"
                     : role === "delivery"
@@ -210,6 +221,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({
                     : "Hostel Block or Day Scholar (Optional)"}
                 </label>
                 <input
+                  id="waitlist-block"
                   type="text"
                   placeholder={
                     role === "outlet"

@@ -40,6 +40,10 @@ const config: Config = {
         "marquee-left": "marqueeLeft 25s linear infinite",
         "marquee-right": "marqueeRight 25s linear infinite",
         "spin-slow": "spin 20s linear infinite",
+        fadeIn: "fadeIn 0.2s ease-out",
+      },
+      borderWidth: {
+        3: "3px",
       },
       keyframes: {
         marqueeLeft: {
@@ -49,6 +53,10 @@ const config: Config = {
         marqueeRight: {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0%)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
     },

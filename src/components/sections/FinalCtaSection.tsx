@@ -161,10 +161,11 @@ export const FinalCtaSection: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
+                    <label htmlFor="cta-name" className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
                       Full Name *
                     </label>
                     <input
+                      id="cta-name"
                       type="text"
                       required
                       placeholder="e.g. Arjun Sharma"
@@ -175,10 +176,11 @@ export const FinalCtaSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
+                    <label htmlFor="cta-contact" className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
                       {role === "outlet" ? "Contact Number / Email *" : "VIT-AP Email or Phone *"}
                     </label>
                     <input
+                      id="cta-contact"
                       type="text"
                       required
                       placeholder={
@@ -194,7 +196,7 @@ export const FinalCtaSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
+                  <label htmlFor="cta-block" className="block text-xs font-andika font-bold uppercase tracking-wider mb-1 text-dark/80">
                     {role === "outlet"
                       ? "Stall Name at Food Street"
                       : role === "delivery"
@@ -202,7 +204,8 @@ export const FinalCtaSection: React.FC = () => {
                       : "Hostel Block or Day Scholar"}
                   </label>
                   <input
-                    type="text"
+                    id="cta-block"
+                      type="text"
                     placeholder={
                       role === "outlet"
                         ? "e.g. Juice Junction Stall #5"
