@@ -20,14 +20,14 @@ Campus food delivery for VIT-AP students, connecting students, campus food outle
 
 ## Overview
 
-CampusEats is a campus-specific food delivery platform for VIT-AP students (undergraduate and postgraduate). It is designed around VIT-AP Food Street, hostels, and class schedules, with the aim of reducing queue time by letting students pre-book a pickup or delivery slot.
+CampusEats is a campus-specific food delivery platform for VIT-AP students (undergraduate and postgraduate). It is built around VIT-AP Food Street, hostels, and class schedules, with the aim of reducing queue time by letting students pre-book a pickup or delivery slot.
 
 This repository contains the CampusEats launch website: the public landing page, waitlist forms for students, outlets, and delivery partners, and the brand and design foundation for the upcoming app.
 
 | Item | Detail |
 | --- | --- |
 | Audience | VIT-AP students, campus food outlets, student delivery partners |
-| Pricing | Free to join; delivery fee of ₹10–20 per order, as described in the original README |
+| Pricing | Free to join; delivery fee of ₹10–20 per order |
 | Stage | Pre-launch; MVP with 5–10 campus outlets planned for January 2027 |
 | Primary action | Join the waitlist |
 
@@ -61,6 +61,27 @@ CampusEats is an independent student venture and is not officially affiliated wi
 - Semantic HTML, keyboard navigation, visible focus states, and reduced-motion support
 - SEO basics: meta tags, Open Graph, sitemap, robots, and JSON-LD
 
+### Interactive 3D experience
+
+The landing page includes adaptive 3D effects, implemented with the existing Framer Motion dependency only. No new dependencies were added for these effects.
+
+- **Hero3D** — mouse-parallax floating cards in the hero section
+- **CursorGlow** — a glow and ring that follows the cursor and grows on interactive elements
+- **ScrollProgress3D** — a progress bar at the top of the page that fills as you scroll
+- **ScrollReveal3D** — content sections that reveal with a rotateX motion as they enter the viewport
+
+The effects adapt to the device:
+
+| Device | Behaviour |
+| --- | --- |
+| Mobile | Light chips in the hero; cursor effects off |
+| Tablet | Gentler hero tilt |
+| Laptop and desktop | Full mouse parallax |
+
+The effects are disabled on touch devices and respect reduced-motion preferences.
+
+Recent fixes include missing Tailwind utilities, a SmoothScroll requestAnimationFrame leak, Escape-to-close behaviour for modals, and form label links.
+
 ## How It Works
 
 1. **Explore** — Browse live menus from Food Street stalls.
@@ -74,7 +95,7 @@ CampusEats is an independent student venture and is not officially affiliated wi
 | Framework | Next.js (App Router) |
 | Language | TypeScript |
 | Styling | Tailwind CSS |
-| Animation | Framer Motion |
+| Animation | Framer Motion — reveals, carousels, modals, and the 3D effects (Hero3D, CursorGlow, ScrollProgress3D, ScrollReveal3D) |
 | Smooth scroll | Lenis |
 | Fonts | Londrina Solid, Andika, Inter, Archivo Black |
 | Quality | ESLint, Prettier |
@@ -133,7 +154,7 @@ Open the application in your browser and follow the terminal output for the loca
 
 ## Configuration
 
-Brand, contact details, and feature flags are centralised in the brand constants file described in the original README. Do not commit `.env.local` or any secret keys.
+Brand, contact details, and feature flags are centralised in the brand constants file. Do not commit `.env.local` or any secret keys.
 
 Key settings to review before launch include the brand name and tagline, contact email, launch label, and social links. Placeholder contact details, including any placeholder WhatsApp link, should be replaced with real, approved details before launch.
 
@@ -145,7 +166,7 @@ The waitlist form posts to a Next.js route handler.
 
 **`POST /api/waitlist`**
 
-Example request body, as described in the original README:
+Example request body:
 
 ```json
 {
@@ -163,11 +184,11 @@ Example request body, as described in the original README:
 
 A successful registration returns a 201 response. Validation failures return 400, and server errors return 500.
 
-Note: the default storage described in the original README is a local JSON file, which is suitable for development only. Serverless platforms do not reliably keep local files between requests, so a real data store should be connected before launch.
+Note: the default storage is a local JSON file, which is suitable for development only. Serverless platforms do not reliably keep local files between requests, so a real data store should be connected before launch.
 
 ## Delivery Partner Earnings
 
-Delivery partners earn ₹5–10 per delivery, as described in the original README. The on-site calculator estimates income from that range and the number of deliveries per day.
+Delivery partners earn ₹5–10 per delivery. The on-site calculator estimates income from that range and the number of deliveries per day.
 
 These are illustrative estimates, not a guarantee of income. Actual earnings depend on order volume and availability.
 
